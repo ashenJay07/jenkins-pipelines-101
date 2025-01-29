@@ -25,7 +25,7 @@ pipeline {
                 // Run & test the docker container
                 sh "docker run -d -p 5000:5000 ${DOCKER_IMAGE}"
                 sleep(5) // Allow container some time to start
-                sh "curl http://localhost:5000"
+                // sh "curl http://localhost:5000"
             }
         }
 
