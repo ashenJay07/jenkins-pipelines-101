@@ -1,0 +1,27 @@
+{
+  "name": "jenkins-pipelines",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashenJay07/jenkins-pipelines-101.git"
+  },
+  "keywords": [
+    "jenkins",
+    "CI/CD",
+    "pipelines"
+  ],
+  "author": "Ashen Jayarathne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashenJay07/jenkins-pipelines-101/issues"
+  },
+  "homepage": "https://github.com/ashenJay07/jenkins-pipelines-101#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
