@@ -1,23 +1,39 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_IMAGE = 'jenkins/node-app:latest'
+        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'
+    }
+
     stages {
-        stage("build"){
+        // stage('Checkout') {
+        //     steps {
+        //         checkout scm
+        //     }
+        // }
+
+        stage('Build Docker Image') {
             steps {
-                echo "building the application..."
+                // Build Docker image
+                sh "docker build -t ${DOCKER_IMAGE} ."
             }
         }
 
-        stage("test"){
+        stage('Test Docker Image') {
             steps {
-                echo "testing the application..."
+                // Run & test the docker container
+                sh "docker run -d -p 5000:5000 ${DOCKER_IMAGE}"
+                sleep(5) // Allow container some time to start
+                sh "curl http://localhost:5000"
             }
         }
 
-        stage("deploy"){
+        stage('Push to DockerHub') {
             steps {
-                echo "deploying the application..."
+                echo "Pushing image to DockerHub..."
             }
         }
     }
+
 }
