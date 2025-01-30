@@ -7,4 +7,7 @@ RUN apt-get update && apt-get install -y docker.io \
 
 RUN getent group docker || groupadd docker && usermod -aG docker jenkins
 
+# Swith back to the jenkins user
+USER jenkins
+
 EXPOSE 8080 50000
